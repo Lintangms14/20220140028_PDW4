@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Praktikum PDW 4</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> 
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif; 
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        animation: changeBackground 5s linear infinite;
+        background: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 0, 255), rgb(0, 0, 255), rgb(0, 255, 255), rgb(0, 255, 0), rgb(255, 255, 0), rgb(255, 0, 0)); /* Gradient warna RGB */
+        background-size: 1800% auto; /* Lebar gradient */
+    }
+
+    @keyframes changeBackground {
+        0% {
+            background-position: 0% center; 
+        }
+        100% {
+            background-position: 100% center; 
+        }
+    }
+
+    #time-frame {
+        border: 2px solid #ccc; 
+        padding: 20px; 
+        max-width: 400px; 
+        background-color: #fff; 
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); 
+        border-radius: 10px; 
+        text-align: center;
+        margin: auto; 
+        opacity: 0; 
+        animation: fadeIn 2s forwards; 
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1; 
+        }
+    }
+
+    button {
+        font-size: 18px;
+        padding: 10px 20px; 
+        color: #fff; 
+        border: none;
+        border-radius: 30px; 
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 20px; 
+        animation: blink 1s infinite alternate; 
+    }
+
+    @keyframes blink {
+        0% {
+            background-color: #737373; 
+        }
+        100% {
+            background-color: #312e2d; 
+        }
+    }
+
+    img {
+        margin-bottom: 20px; 
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); 
+        opacity: 0; 
+        animation: fadeIn 2s forwards; 
+    }
+
+    #hasil {
+        font-size: 18px; 
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 36px; 
+        font-weight: bold; 
+        margin-bottom: 10px; 
+    }
+</style>
+
+<body>
+    <div id="time-frame">
+        <h1>Sunset di Sore Hari</h1> 
+        <p>Cuaca yang cerah dengan sedikit awan cenderung menghasilkan sunset yang lebih jelas dan menakjubkan.</p>
+        <img src="https://tugujatim.id/wp-content/uploads/2023/07/2cb82caa-1c93-4de7-a0d2-02fcd6dba2a2-1.jpg" alt="Image">
+        <button onclick="showAlert()">Click</button>
+        <div id="hasil"></div>
+    </div>
+
+    <script>
+        function updateTime() {
+            let now = new Date();
+            let tanggal = now.toLocaleString();
+            document.getElementById("hasil").innerHTML = tanggal;
+        }
+
+        setInterval(updateTime, 1000);
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
